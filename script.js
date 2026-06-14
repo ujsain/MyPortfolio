@@ -37,7 +37,6 @@ local function applyGrip(chassis, isDrifting)
 end`,
     },
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/eNFfwNVrDO0', primary: true },
       { label: 'View Code', url: '#' },
     ],
   },
@@ -63,7 +62,6 @@ if hit then
 end`,
     },
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/qHz2qdRn9FQ', primary: true },
       { label: 'View Code', url: '#' },
     ],
   },
@@ -72,26 +70,12 @@ end`,
     title: 'Math Game',
     tech: ['Unity', 'C#', '2D'],
     body: [
-      { h: 'Overview', p: 'A 2D educational math game built in Unity and C#. Players solve problems through gameplay rather than plain quizzes — I wanted learning to actually feel like a game.' },
-      { h: 'The challenge', p: 'Making math engaging meant tying every question to a real mechanic and keeping difficulty adaptive so players stay in the sweet spot between bored and frustrated.' },
-      { h: 'How I built it', p: 'A question generator scales difficulty based on the player\'s recent accuracy, and a clean event-driven UI reacts to answers with feedback and scoring. The content is data-driven, so new problem types are easy to add.' },
+      { h: 'Overview', p: 'A 2D math game built in Unity/C#. The twist: you are a number, and your number is your weight. Bigger number = heavier, so you tip seesaws, hold down switches, and shove open doors with it. You grow and shrink it by grabbing and dropping digits as you play. Math you feel, not math you get quizzed on.' },
+      { h: 'The challenge', p: 'The hard part was design, not code. Getting math to actually feel like a game took a ton of brainstorming and a lot of dead ends. Once it clicked that "your number is your weight," everything fell into place.' },
+      { h: 'How I built it', p: 'Every mechanic — adders, springs, seesaws, weight gates — is its own prefab that just works the moment it touches the player. No central wiring. So I could build levels by dragging prefabs into a scene and they\'d react on their own.' },
     ],
-    code: {
-      lang: 'C#',
-      text: `// Adaptive difficulty: nudge the range based on recent accuracy
-public Question NextQuestion(float recentAccuracy)
-{
-    if (recentAccuracy > 0.8f) _level++;
-    else if (recentAccuracy < 0.4f) _level = Mathf.Max(1, _level - 1);
-
-    int max = 5 * _level;
-    int a = Random.Range(1, max), b = Random.Range(1, max);
-    return new Question(a, b, a + b);
-}`,
-    },
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/FfcwRnzSwo4', primary: true },
-      { label: 'View Code', url: '#' },
+      { label: 'View Code', url: 'https://github.com/ujsain/The-Journey-Of-Zero', primary: true },
     ],
   },
 
@@ -121,7 +105,6 @@ function Bot:update(dt)
 end`,
     },
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/g_4jja5_s-A', primary: true },
       { label: 'View Code', url: '#' },
     ],
   },
@@ -130,63 +113,23 @@ end`,
     title: 'Mobile Game UI',
     tech: ['Unity', 'C#', 'UI/UX'],
     body: [
-      { h: 'Overview', p: 'A complete UI for a mobile game in Unity — menus, transitions and reusable components, all written from scratch rather than dropped in from an asset pack.' },
+      { h: 'Overview', p: 'A complete UI for a mobile game in Unity — menus, transitions and reusable components, all written from scratch.' },
       { h: 'The challenge', p: 'Mobile UI has to be snappy and readable on small screens, animate smoothly, and stay maintainable as new screens get added. Hard-coding each screen would have become unmanageable fast.' },
       { h: 'How I built it', p: 'I built a small framework of reusable components (buttons, panels, popups) plus a tween/animation module that any screen can call. A simple UI manager handles showing, hiding and stacking screens so flows stay consistent.' },
     ],
-    code: {
-      lang: 'C#',
-      text: `// Reusable animated panel — any screen just calls Show()/Hide()
-public class UIPanel : MonoBehaviour
-{
-    [SerializeField] float duration = 0.25f;
-
-    public void Show() => StartCoroutine(Animate(0f, 1f, true));
-    public void Hide() => StartCoroutine(Animate(1f, 0f, false));
-
-    IEnumerator Animate(float from, float to, bool active)
-    {
-        if (active) gameObject.SetActive(true);
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            canvasGroup.alpha = Mathf.Lerp(from, to, t / duration);
-            yield return null;
-        }
-        canvasGroup.alpha = to;
-        if (!active) gameObject.SetActive(false);
-    }
-}`,
-    },
-    links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/_XRBRZ4g_vA', primary: true },
-      { label: 'View Code', url: '#' },
-    ],
+    links: [],
   },
 
   '01Fkofs51dQ': {
     title: 'Snake Game + RL AI',
     tech: ['Unity', 'C#', 'Reinforcement Learning', 'ML-Agents'],
     body: [
-      { h: 'Overview', p: 'A classic Snake game rebuilt in Unity, then taken further: I trained reinforcement-learning agents to play it, learning to chase food and avoid killing themselves.' },
-      { h: 'The challenge', p: 'The reward design is everything. Reward only eating, and the snake ignores survival; reward only survival, and it stalls forever. Getting an agent that actually plays well took careful shaping.' },
-      { h: 'How I built it', p: 'The agent observes its surroundings and the food direction, and is rewarded for eating, lightly penalized over time to encourage efficiency, and heavily penalized for dying. Over many training episodes it learns genuinely competent play.' },
+      { h: 'Overview', p: 'A Snake game built in Unity, then turned into an AI playground. The snakes steer continuously (Slither.io-style, not the grid version), and I trained reinforcement-learning agents to drive them — chasing food, dodging walls, and avoiding each other in a shared arena.' },
+      { h: 'The challenge', p: 'The agent never gets told where the food is. Each snake "sees" through 20 raycasts fanning out in front of it, each reporting what it\'s looking at — food, a wall, or a rival snake — and how far. Turning that raw vision into smart movement, with nothing but a single steering output and a sparse reward, was the hard part.' },
+      { h: 'How I built it', p: 'Each snake observes its raycasts plus its own position, and acts through one continuous steer while always moving forward. Rewards are dead simple: +3 for eating, −2 for hitting a wall, −3 for crashing into another snake. I trained it with PPO in ML-Agents over a couple million steps, then exported to ONNX to run in-game. Several snakes share the arena and compete, so they learn to handle a board that\'s always moving — not a static one.' },
     ],
-    code: {
-      lang: 'C#',
-      text: `// Reward shaping — the heart of the training loop
-public override void OnActionReceived(ActionBuffers actions)
-{
-    Move(actions.DiscreteActions[0]);
-
-    if (AteFood())       AddReward(+1.0f);   // eating is good
-    else                 AddReward(-0.001f); // small time penalty
-
-    if (HitWallOrSelf()) { AddReward(-1.0f); EndEpisode(); }
-}`,
-    },
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/01Fkofs51dQ', primary: true },
-      { label: 'View Code', url: '#' },
+      { label: 'View Code', url: 'https://github.com/ujsain/SnakeGame', primary: true },
     ],
   },
 
@@ -208,56 +151,31 @@ local function launch(target, direction, charge)
 end`,
     },
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/fpLVqa5t63E', primary: true },
       { label: 'View Code', url: '#' },
     ],
   },
 
   kUziMj68Og0: {
     title: 'Cyberpunk UI',
-    tech: ['Unity', 'C#', 'UI/UX', 'Shaders'],
+    tech: ['Roblox', 'Lua', 'UI/UX'],
     body: [
       { h: 'Overview', p: 'Effect-heavy UI work for a cyberpunk-styled game — glitches, scanlines and neon accents that sell an immersive, high-tech atmosphere.' },
-      { h: 'The challenge', p: 'Layering lots of visual effects while keeping the interface readable and performant — flashy UI is worthless if players can\'t actually use it or it tanks the frame rate.' },
-      { h: 'How I built it', p: 'I combined shader-driven effects (scanlines, chromatic glitch) with code-driven micro-animations on interaction, and budgeted the effects so the look stays striking without hurting performance.' },
+      { h: 'The challenge', p: 'Layering lots of visual effects while keeping the interface readable and performant. Also got to know about several Roblox engine constraints compared to Unity.' },
+      { h: 'How I built it', p: 'I built this the agentic way — used Opus 4.5 to lay out about 80% of the UI, then did the polishing and the creative touches myself to make it more visually appealing.' },
     ],
-    code: {
-      lang: 'C#',
-      text: `// Trigger a short glitch burst on hover, then settle
-public void OnPointerEnter(PointerEventData e)
-{
-    StopAllCoroutines();
-    StartCoroutine(GlitchBurst(intensity: 0.6f, seconds: 0.18f));
-}
-
-IEnumerator GlitchBurst(float intensity, float seconds)
-{
-    for (float t = 0; t < seconds; t += Time.deltaTime)
-    {
-        material.SetFloat("_Glitch", intensity * (1 - t / seconds));
-        yield return null;
-    }
-    material.SetFloat("_Glitch", 0f);
-}`,
-    },
-    links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/kUziMj68Og0', primary: true },
-      { label: 'View Code', url: '#' },
-    ],
+    links: [],
   },
 
-  // TODO: review/edit the copy + tech tags below to match the real project
   '2lh-PS8I5L4': {
     title: 'Skydiving',
-    tech: ['Unity', 'C#', 'Physics'],
+    tech: ['Roblox', 'Luau', 'Physics'],
     body: [
-      { h: 'Overview', p: 'A skydiving experience built around physics-based free-fall — the player dives, controls their body through the air, and deploys a parachute for a controlled landing.' },
-      { h: 'The challenge', p: 'Free-fall has to feel fast and weighty without becoming uncontrollable, and the transition into parachute flight needs to feel smooth rather than abrupt.' },
-      { h: 'How I built it', p: 'Air drag and gravity drive the descent, with player input adjusting orientation and fall speed. Deploying the chute swaps the physics profile so the character decelerates and glides toward the landing zone.' },
+      { h: 'Overview', p: 'A Roblox skydiving game. You board a plane, jump out, fly your body through ring gates on the way down, then pop a glider to land on the podium.' },
+      { h: 'The challenge', p: 'Free-fall needed to feel fast and heavy but still fully steerable, and going from free-fall into the glider had to feel smooth, not snap. Tricky part: Roblox keeps resetting your velocity every frame, so I had to take flight off the engine and run it myself.' },
+      { h: 'How I built it', p: 'Two custom controllers — one for free-fall, one for the glider — sharing the same body-tilt so the switch looks seamless. Each writes velocity directly every frame: gravity-ish fall ramping to a capped speed, WASD to steer. Opening the glider hands control over, clamps your fall, pops you up a little, and pushes you sideways through CFrame so the engine can\'t fight it. New gliders are just a config — fall speed, tilt, wind — no new code.' },
     ],
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/2lh-PS8I5L4', primary: true },
-      { label: 'View Code', url: '#' },
+      { label: 'View Code', url: 'https://github.com/ujsain/SkyDiving', primary: true },
     ],
   },
 
@@ -265,13 +183,12 @@ IEnumerator GlitchBurst(float intensity, float seconds)
     title: 'Fighting Game',
     tech: ['Unity', 'C#', 'Combat'],
     body: [
-      { h: 'Overview', p: 'A melee fighting game with responsive controls, chained combos and clean hit detection — built to feel snappy and satisfying to play.' },
-      { h: 'The challenge', p: 'Combat feel lives in the details: hits need to register reliably, attacks need to flow into combos, and timing windows have to feel fair without being forgiving to the point of being mindless.' },
-      { h: 'How I built it', p: 'Attacks are driven by an animation-synced state machine with hitbox activation windows, combo buffering and hit reactions, so inputs chain together naturally and impacts read clearly to the player.' },
+      { h: 'Overview', p: 'A 1v1 fighting game where you take on an AI opponent. Both fighters move on a single plane (like a classic side-on fighter). You\'ve got punch and kick combos, block, crouch, jump, and a special projectile attack.' },
+      { h: 'The challenge', p: 'Getting combat to feel good. Hits need to land reliably, combos need to chain when you time them right, and getting hit shouldn\'t lock you in place forever. Most of the work was tuning these small things.' },
+      { h: 'How I built it', p: 'Everything runs on a state machine, both the player and the enemy AI. Each attack is its own state, and combos chain by jumping to the next attack if you press again inside the combo window. Hit detection uses weapon colliders that turn on/off through animation events, so damage only happens during the actual swing. A small "already hit" list stops one swing from hitting twice. On a clean hit you get knockback, camera shake, and a hit effect. The enemy has its own state machine — it walks toward you, attacks when close, picks random attacks, and throws a projectile sometimes. The special attack slows time and desaturates the screen for a second before the projectile fires.' },
     ],
     links: [
-      { label: 'Watch on YouTube', url: 'https://youtu.be/8fWLdfKFmJY', primary: true },
-      { label: 'View Code', url: '#' },
+      { label: 'View Code', url: 'https://github.com/ujsain/MFFightGame/tree/main', primary: true },
     ],
   },
 };
