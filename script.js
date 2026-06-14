@@ -170,9 +170,9 @@ end`,
     title: 'Skydiving',
     tech: ['Roblox Engine', 'Luau', 'Physics'],
     body: [
-      { h: 'Overview', p: 'A Roblox skydiving game. You board a plane, jump out, fly your body through ring gates on the way down, then pop a glider to land on the podium.' },
-      { h: 'The challenge', p: 'Free-fall needed to feel fast and heavy but still fully steerable, and going from free-fall into the glider had to feel smooth, not snap. Tricky part: Roblox keeps resetting your velocity every frame, so I had to take flight off the engine and run it myself.' },
-      { h: 'How I built it', p: 'Two custom controllers — one for free-fall, one for the glider — sharing the same body-tilt so the switch looks seamless. Each writes velocity directly every frame: gravity-ish fall ramping to a capped speed, WASD to steer. Opening the glider hands control over, clamps your fall, pops you up a little, and pushes you sideways through CFrame so the engine can\'t fight it. New gliders are just a config — fall speed, tilt, wind — no new code.' },
+      { h: 'Overview', p: 'A Roblox social multiplayer skydiving game. You board a plane with your friends, jump out, fly your body through rings, collect coins on the way down, then pop a glider to land on the podium.' },
+      { h: 'The challenge', p: 'Velocity is custom, because natural gravity would make the player fall too fast. Since it\'s multiplayer, if two or more people skydive simultaneously, I had to fake the body\'s Y-position to compensate for server-client lag.' },
+      { h: 'How I built it', p: 'I wrote modular code where each system works independently. The game also includes several other systems such as a pet system, egg hatching, pet fusion, and a leaderboard. For data persistence, I used ProfileService to manage player data.' },
     ],
     links: [
       { label: 'View Code', url: 'https://github.com/ujsain/SkyDiving', primary: true },
