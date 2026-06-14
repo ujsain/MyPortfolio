@@ -17,7 +17,7 @@
 const PROJECTS = {
   eNFfwNVrDO0: {
     title: 'Vehicle System',
-    tech: ['Roblox', 'Luau', 'Physics'],
+    tech: ['Roblox Engine', 'Luau', 'Physics'],
     body: [
       { h: 'Overview', p: 'A fully physics-based vehicle controller with realistic acceleration, steering and a satisfying drift mechanic — not a fake tween, but actual constraint-driven physics.' },
       { h: 'The challenge', p: 'Keeping the car stable at high speed while still allowing controlled drifts meant carefully balancing grip, suspension and angular forces so it never felt floaty or out of control.' },
@@ -43,7 +43,7 @@ end`,
 
   qHz2qdRn9FQ: {
     title: 'HoverBoard Mechanics',
-    tech: ['Roblox', 'Luau', 'Physics'],
+    tech: ['Roblox Engine', 'Luau', 'Physics'],
     body: [
       { h: 'Overview', p: 'Smooth hoverboard movement — the board floats above the ground, tilts into turns, and bobs naturally as the player rides.' },
       { h: 'The challenge', p: 'Hovering looks simple but feels terrible if the float is rigid. The trick was making the ride feel weightless and responsive without the board clipping into terrain or jittering.' },
@@ -68,11 +68,11 @@ end`,
 
   FfcwRnzSwo4: {
     title: 'Math Game',
-    tech: ['Unity', 'C#', '2D'],
+    tech: ['Unity Engine', 'C#', '2D'],
     body: [
-      { h: 'Overview', p: 'A 2D math game built in Unity/C#. The twist: you are a number, and your number is your weight. Bigger number = heavier, so you tip seesaws, hold down switches, and shove open doors with it. You grow and shrink it by grabbing and dropping digits as you play. Math you feel, not math you get quizzed on.' },
-      { h: 'The challenge', p: 'The hard part was design, not code. Getting math to actually feel like a game took a ton of brainstorming and a lot of dead ends. Once it clicked that "your number is your weight," everything fell into place.' },
-      { h: 'How I built it', p: 'Every mechanic — adders, springs, seesaws, weight gates — is its own prefab that just works the moment it touches the player. No central wiring. So I could build levels by dragging prefabs into a scene and they\'d react on their own.' },
+      { h: 'Overview', p: 'A 2D math game with a twist: you <em>are</em> a number, and that number is your weight. Bigger number, heavier you — so you tip seesaws, hold down switches, and shove open doors just by existing. You grow and shrink by grabbing and dropping digits as you play. It\'s math you <em>feel</em>, not math you get quizzed on.' },
+      { h: 'The challenge', p: 'The hard part was design, not code. Getting math to actually feel like a game took a ton of brainstorming and a lot of dead ends.' },
+      { h: 'How I built it', p: 'Every mechanic — adders, springs, seesaws, weight gates — lives in its own prefab that just works the moment it touches the player. No central wiring. I could build levels by dragging prefabs into a scene and they\'d react on their own.' },
     ],
     links: [
       { label: 'View Code', url: 'https://github.com/ujsain/The-Journey-Of-Zero', primary: true },
@@ -81,7 +81,7 @@ end`,
 
   'g_4jja5_s-A': {
     title: 'Knife Combat & AI',
-    tech: ['Roblox', 'Luau', 'State Machine', 'AI'],
+    tech: ['Roblox Engine', 'Luau', 'State Machine', 'AI'],
     body: [
       { h: 'Overview', p: 'A knife combat system paired with AI bots that hunt, chase and attack the player — all driven by a clean finite state machine.' },
       { h: 'The challenge', p: 'Bots needed to feel deliberate, not twitchy: smoothly transitioning between patrolling, chasing and attacking without getting stuck or flip-flopping between states.' },
@@ -111,7 +111,7 @@ end`,
 
   _XRBRZ4g_vA: {
     title: 'Mobile Game UI',
-    tech: ['Unity', 'C#', 'UI/UX'],
+    tech: ['Unity Engine', 'C#', 'UI/UX'],
     body: [
       { h: 'Overview', p: 'A complete UI for a mobile game in Unity — menus, transitions and reusable components, all written from scratch.' },
       { h: 'The challenge', p: 'Mobile UI has to be snappy and readable on small screens, animate smoothly, and stay maintainable as new screens get added. Hard-coding each screen would have become unmanageable fast.' },
@@ -122,7 +122,7 @@ end`,
 
   '01Fkofs51dQ': {
     title: 'Snake Game + RL AI',
-    tech: ['Unity', 'C#', 'Reinforcement Learning', 'ML-Agents'],
+    tech: ['Unity Engine', 'C#', 'Reinforcement Learning', 'ML-Agents'],
     body: [
       { h: 'Overview', p: 'A Snake game built in Unity, then turned into an AI playground. The snakes steer continuously (Slither.io-style, not the grid version), and I trained reinforcement-learning agents to drive them — chasing food, dodging walls, and avoiding each other in a shared arena.' },
       { h: 'The challenge', p: 'The agent never gets told where the food is. Each snake "sees" through 20 raycasts fanning out in front of it, each reporting what it\'s looking at — food, a wall, or a rival snake — and how far. Turning that raw vision into smart movement, with nothing but a single steering output and a sparse reward, was the hard part.' },
@@ -135,7 +135,7 @@ end`,
 
   fpLVqa5t63E: {
     title: 'Knockout Mechanics',
-    tech: ['Roblox', 'Luau', 'Physics'],
+    tech: ['Roblox Engine', 'Luau', 'Physics'],
     body: [
       { h: 'Overview', p: 'A recreation of the core mechanics from the popular Knockout game — solid physics, arrow/aim mechanics and satisfying rotation, all built with clean, modular code.' },
       { h: 'The challenge', p: 'Getting the launch and knockback to feel powerful and fair at the same time, with rotation and arc that read clearly to the player as they aim.' },
@@ -157,7 +157,7 @@ end`,
 
   kUziMj68Og0: {
     title: 'Cyberpunk UI',
-    tech: ['Roblox', 'Lua', 'UI/UX'],
+    tech: ['Roblox Engine', 'Lua', 'UI/UX'],
     body: [
       { h: 'Overview', p: 'Effect-heavy UI work for a cyberpunk-styled game — glitches, scanlines and neon accents that sell an immersive, high-tech atmosphere.' },
       { h: 'The challenge', p: 'Layering lots of visual effects while keeping the interface readable and performant. Also got to know about several Roblox engine constraints compared to Unity.' },
@@ -168,7 +168,7 @@ end`,
 
   '2lh-PS8I5L4': {
     title: 'Skydiving',
-    tech: ['Roblox', 'Luau', 'Physics'],
+    tech: ['Roblox Engine', 'Luau', 'Physics'],
     body: [
       { h: 'Overview', p: 'A Roblox skydiving game. You board a plane, jump out, fly your body through ring gates on the way down, then pop a glider to land on the podium.' },
       { h: 'The challenge', p: 'Free-fall needed to feel fast and heavy but still fully steerable, and going from free-fall into the glider had to feel smooth, not snap. Tricky part: Roblox keeps resetting your velocity every frame, so I had to take flight off the engine and run it myself.' },
@@ -181,7 +181,7 @@ end`,
 
   '8fWLdfKFmJY': {
     title: 'Fighting Game',
-    tech: ['Unity', 'C#', 'Combat'],
+    tech: ['Unity Engine', 'C#', 'Combat'],
     body: [
       { h: 'Overview', p: 'A 1v1 fighting game where you take on an AI opponent. Both fighters move on a single plane (like a classic side-on fighter). You\'ve got punch and kick combos, block, crouch, jump, and a special projectile attack.' },
       { h: 'The challenge', p: 'Getting combat to feel good. Hits need to land reliably, combos need to chain when you time them right, and getting hit shouldn\'t lock you in place forever. Most of the work was tuning these small things.' },
@@ -213,7 +213,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 
 // ─── Copy email to clipboard ───
 function copyEmail(el) {
-  navigator.clipboard.writeText('sainiujjawal4239@gmail.com');
+  navigator.clipboard.writeText('ujjsaini@gmail.com');
   const arrow = el.querySelector('.contact-link-arrow');
   const original = arrow.textContent;
   arrow.textContent = '✓';
@@ -339,7 +339,7 @@ function openProject(id) {
     .map(t => `<span class="vm-tech-tag">${t}</span>`)
     .join('');
 
-  // Case-study body
+  // Case-study body (allows inline <em> emphasis from the data)
   modalBody.innerHTML = (data.body || [])
     .map(s => `<div class="vm-section"><h4>${s.h}</h4><p>${s.p}</p></div>`)
     .join('');
@@ -368,6 +368,21 @@ function openProject(id) {
 
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', () => openProject(card.dataset.id));
+
+  // Add a "View Code" button to the card if the project has a real repo link
+  const data = PROJECTS[card.dataset.id];
+  const codeLink = (data && data.links || []).find(l => l.url && l.url !== '#');
+  const actions = card.querySelector('.project-actions');
+  if (codeLink && actions) {
+    const a = document.createElement('a');
+    a.href = codeLink.url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.className = 'project-code-link';
+    a.innerHTML = `<svg class="code-icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>View Code</span>`;
+    a.addEventListener('click', (e) => e.stopPropagation()); // don't open the modal
+    actions.appendChild(a);
+  }
 });
 
 function closeVideoModal() {

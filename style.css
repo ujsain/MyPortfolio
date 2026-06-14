@@ -674,9 +674,40 @@ section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
 .project-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
 .project-info p { font-size: 0.82rem; color: var(--text-secondary); }
 
+.project-actions {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.6rem; margin-top: 0.9rem;
+}
+
+.project-code-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.02em; text-decoration: none;
+  color: var(--accent-warm);
+  background: rgba(212, 145, 94, 0.1);
+  border: 1px solid rgba(212, 145, 94, 0.4);
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+.project-code-link .code-icon {
+  width: 0.95rem; height: 0.95rem;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.project-code-link:hover {
+  background: var(--accent-warm);
+  border-color: var(--accent-warm);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(212, 145, 94, 0.3);
+  transform: translateY(-1px);
+}
+.project-code-link:hover .code-icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
 .project-hint {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  margin-top: 0.9rem;
   padding: 0.45rem 0.95rem;
   font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
   color: var(--accent); letter-spacing: 0.02em;
