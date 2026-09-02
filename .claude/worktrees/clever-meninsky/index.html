@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USain | Professional Roblox Scripting Services</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Our Stylesheet (separate file!) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo"><span>US</span>ain</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="section-wrap section-hero">
+  <section class="hero" id="home">
+    <div class="hero-glow">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+    </div>
+    <div class="hero-status">
+      <div class="dot"></div>
+      $status — available
+    </div>
+    <h1>Roblox <span class="accent">Scripting</span><br>Services</h1>
+    <p>Reliable, clean code with scalable architecture. Years of experience delivering performance-optimized systems for games.</p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn btn-primary">Portfolio</a>
+      <a href="#contact" class="btn btn-secondary">Contact →</a>
+    </div>
+    <div class="scroll-indicator">Scroll</div>
+  </section>
+  <!-- Wave divider: hero → services -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,70 L1440,120 L0,120 Z" fill="var(--bg-primary)"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="reveal">
+    <div class="section-label">What I Offer</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-desc">I build solid, well-structured systems for Roblox games — here's what I can do for you.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">🏗️</div>
+      <h3>Game Frameworks</h3>
+      <p>I set up clean, organized codebases using frameworks like Knit so your project stays maintainable as it grows.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚔️</div>
+      <h3>Combat Systems</h3>
+      <p>From melee combos to ranged weapons — I build responsive combat with proper hitboxes, cooldowns, and effects.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🖥️</div>
+      <h3>UI Logic & Backend</h3>
+      <p>I handle both the interface and the server-side logic — inventories, shops, leaderboards, and everything in between.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💾</div>
+      <h3>Data Stores & Saving</h3>
+      <p>Player data that actually works — proper saving, loading, session locking, and fallback handling so nothing gets lost.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Custom Systems</h3>
+      <p>Need something specific? I build one-off mechanics and gameplay features built exactly to your vision.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Optimization & Refactoring</h3>
+      <p>If your game is lagging or the code is a mess, I'll clean it up, improve performance, and make it easier to work with.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO ═══ -->
+<div class="section-wrap section-green">
+  <!-- Wave divider: services → portfolio -->
+  <div class="wave-divider wave-top">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,0 L0,60 C240,120 480,20 720,60 C960,100 1200,30 1440,70 L1440,0 Z" fill="var(--bg-primary)"/>
+    </svg>
+  </div>
+  <section id="portfolio">
+    <div class="reveal">
+      <div class="section-label">My Work</div>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-desc">A selection of projects showcasing my experience and expertise.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="project-card reveal" data-video="eNFfwNVrDO0">
+        <div class="project-thumb">
+          <img src="https://img.youtube.com/vi/eNFfwNVrDO0/maxresdefault.jpg" alt="Vehicle System" loading="lazy">
+          <div class="project-play">▶</div>
+        </div>
+        <div class="project-info">
+          <h3>Vehicle System</h3>
+          <p>Full physics-based vehicle controller with drifting.</p>
+        </div>
+      </div>
+      <div class="project-card reveal" data-video="qHz2qdRn9FQ">
+        <div class="project-thumb">
+          <img src="https://img.youtube.com/vi/qHz2qdRn9FQ/maxresdefault.jpg" alt="HoverBoard Effect" loading="lazy">
+          <div class="project-play">▶</div>
+        </div>
+        <div class="project-info">
+          <h3>HoverBoard Effect</h3>
+          <p>Made a smooth HoverBoard mechanics in Roblox Studio.</p>
+        </div>
+      </div>
+      <div class="project-card reveal" data-video="FfcwRnzSwo4">
+        <div class="project-thumb">
+          <img src="https://img.youtube.com/vi/FfcwRnzSwo4/maxresdefault.jpg" alt="Math Game" loading="lazy">
+          <div class="project-play">▶</div>
+        </div>
+        <div class="project-info">
+          <h3>Math Game</h3>
+          <p>Made a 2D Math game in Unity engine and C#. It was a very fun project, I am sure no one has made it like this.</p>
+        </div>
+      </div>
+      <div class="project-card reveal" data-video="g_4jja5_s-A">
+        <div class="project-thumb">
+          <img src="https://img.youtube.com/vi/g_4jja5_s-A/maxresdefault.jpg" alt="Knife System" loading="lazy">
+          <div class="project-play">▶</div>
+        </div>
+        <div class="project-info">
+          <h3>Knife System</h3>
+          <p>Knife combat system and AI bots using state machine design pattern.</p>
+        </div>
+      </div>
+      <div class="project-card reveal" data-video="_XRBRZ4g_vA">
+        <div class="project-thumb">
+          <img src="https://img.youtube.com/vi/_XRBRZ4g_vA/maxresdefault.jpg" alt="UI Work" loading="lazy">
+          <div class="project-play">▶</div>
+        </div>
+        <div class="project-info">
+          <h3>UI Work</h3>
+          <p>Made this UI for a mobile game in Unity. Wrote animations, modules, and several UI components from scratch.</p>
+        </div>
+      </div>
+      <div class="project-card reveal" data-video="01Fkofs51dQ">
+        <div class="project-thumb">
+          <img src="https://img.youtube.com/vi/01Fkofs51dQ/maxresdefault.jpg" alt="Snake Game" loading="lazy">
+          <div class="project-play">▶</div>
+        </div>
+        <div class="project-info">
+          <h3>Snake Game</h3>
+          <p>Made a snake game in the Unity engine and used reinforcement learning to train AI agents.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Lightbox Modal -->
+    <div class="video-modal" id="videoModal">
+      <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
+      <div class="video-modal-content">
+        <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
+        <div class="video-modal-player" id="modalPlayer"></div>
+        <div class="video-modal-info">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc"></p>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-more reveal">
+      <a href="https://x.com/LuaBankai" target="_blank">See more work on 𝕏 →</a>
+    </div>
+  </section>
+  <!-- Wave divider: portfolio → about -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,40 C320,100 640,0 960,60 C1120,90 1300,50 1440,80 L1440,120 L0,120 Z" fill="var(--bg-warm)"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div class="section-wrap section-warm">
+  <section id="about">
+    <div class="reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Scripting Game Dev Experiences</h2>
+    </div>
+    <div class="about-content">
+      <div class="reveal">
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-value" data-count="4">0+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" data-count="5">0+</div>
+            <div class="stat-label">Games Shipped</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>Hey, I'm <strong>USain</strong>! I've been doing game dev for over 4 years, working on everything from personal passion projects to large-scale projects.</p>
+          <p>I specialize in both frontend and backend development — whether it's crafting smooth UI systems, building robust server architecture, or anything else your project needs in terms of scripting.</p>
+          <p>Clean code, solid performance, and reliable delivery are what I bring to every project. Let's build something great together.</p>
+        </div>
+      </div>
+      <div class="tech-stack reveal">
+        <h4>Tech Stack — Tools I Work With Daily</h4>
+        <div class="tech-tags">
+          <span class="tech-tag">Unity</span>
+          <span class="tech-tag">Roblox</span>
+          <span class="tech-tag">Unreal Engine</span>
+          <span class="tech-tag">Luau</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">C++</span>
+          <span class="tech-tag">Git</span>
+          <span class="tech-tag">VS Code</span>
+          <span class="tech-tag">Knit</span>
+          <span class="tech-tag">ProfileService</span>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 1rem;">And more based on project requirements</p>
+      </div>
+    </div>
+  </section>
+  <!-- Wave divider: about → contact -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C360,0 720,120 1080,40 C1260,10 1380,30 1440,20 L1440,120 L0,120 Z" fill="var(--bg-forest)"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="section-wrap section-forest">
+  <section id="contact">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's Work Together</h2>
+    </div>
+    <div class="contact-content">
+      <div class="contact-left reveal">
+        <h3>Get in Touch</h3>
+        <p>The fastest way to reach me for project inquiries.</p>
+        <div class="discord-box" onclick="copyDiscord(this)">
+          <div class="discord-box-header">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            <div class="discord-label">Discord Username</div>
+          </div>
+          <div class="discord-handle">us1piece</div>
+          <div class="discord-copy">click to copy</div>
+        </div>
+        <a href="https://x.com/LuaBankai" target="_blank" class="twitter-box">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <div>
+            <div class="twitter-label">Twitter / X</div>
+            <div class="twitter-handle">@LuaBankai</div>
+          </div>
+          <span class="twitter-arrow">→</span>
+        </a>
+      </div>
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="contact-icon">✓</div>
+          <div>
+            <h4>Available</h4>
+            <p>Currently accepting new projects</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">⚡</div>
+          <div>
+            <h4>Fast Response</h4>
+            <p>Usually within 24 hours</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">💼</div>
+          <div>
+            <h4>Paid Commissions Only</h4>
+            <p>Include project details and budget</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <a href="#home" style="display: inline-block; margin-bottom: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem;">
+    ~/USain
+  </a>
+  <p>© 2026 USain. All rights reserved.</p>
+</footer>
+
+<!-- Our JavaScript (separate file!) -->
+<script src="script.js"></script>
+</body>
+</html>

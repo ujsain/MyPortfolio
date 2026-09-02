@@ -15,6 +15,30 @@
    Replace any "#" link with a real GitHub repo / live demo URL.
    ───────────────────────────────────────────────────────────── */
 const PROJECTS = {
+  LBIvO2eZOKY: {
+    title: 'Frag Boom !',
+    tech: ['Roblox Engine', 'Luau', 'Physics', 'State Machine'],
+    body: [
+      { h: 'Overview', p: 'Last man standing on a stack of breakable plates. Nobody has health — you throw bombs to delete the floor under people and shove them off. Grab mystery boxes for buffs like bigger blasts or triple volleys. Fall off, you\'re out.' },
+      { h: 'The challenge', p: 'Making the destruction real instead of a decal. Every blast recursively splits the plate until the hole matches the sphere, and since the plates have art on them, each fragment had to keep its own slice of the image — rotation-proof and deterministic.' },
+      { h: 'How I built it', p: 'The round runs on a phase state machine that knows nothing about the game — services just register for the phases they care about, so adding the map vote was a config edit. Bomb types are pure data off the model, so a new bomb is zero code. One fall watcher handles every elimination, with kill credit, coins and stats hanging off the event it fires. Plus bots, a shop, leaderboards and a win podium.' },
+    ],
+    links: [],
+  },
+
+  '3_BvsgZOhW4': {
+    title: 'Guess Wrong Die !',
+    tech: ['Roblox Engine', 'Luau', 'State Machine', 'AI'],
+    body: [
+      { h: 'Overview', p: 'A 1v1 duel against an AI. You both sit across a table and pick one move each round — shoot, reload, or deflect — then reveal at the same time. Shooting needs a bullet, reloading leaves you open, deflect bounces a shot back. Guess wrong about what the other guy does and you take a hit. First to run out of health loses.' },
+      { h: 'The challenge', p: 'Making the mind-game feel fair instead of random. The rules for what beats what had to be tight, and the bot had to feel like a real opponent, not a coin flip. Most of the work was tuning that so a loss feels like you got outguessed, not cheated.' },
+      { h: 'How I built it', p: 'The match runs on a state machine — waiting, countdown, choosing, resolving, game over — handled on the server so it can\'t be cheated. The actual fight is one small function: give it both moves and bullet counts, it spits out the damage. Each move is its own module, and the bot\'s decision-making is a separate piece I can swap out later for harder difficulty. On top of that there\'s the polish — ragdoll on death, muzzle flash, sound, a coin economy with saved data, and a shop to buy and switch guns.' },
+    ],
+    links: [
+      { label: 'View Code', url: 'https://github.com/ujsain/GuessWrongDie', primary: true },
+    ],
+  },
+
   eNFfwNVrDO0: {
     title: 'Vehicle System',
     tech: ['Roblox Engine', 'Luau', 'Physics'],
@@ -41,33 +65,19 @@ end`,
     ],
   },
 
-  qHz2qdRn9FQ: {
-    title: 'HoverBoard Mechanics',
-    tech: ['Roblox Engine', 'Luau', 'Physics'],
+  gh4Y8P1VXSk: {
+    title: '1 IQ vs 9999 IQ',
+    tech: ['Roblox Engine', 'Lua', 'Game Architecture'],
     body: [
-      { h: 'Overview', p: 'Smooth hoverboard movement — the board floats above the ground, tilts into turns, and bobs naturally as the player rides.' },
-      { h: 'The challenge', p: 'Hovering looks simple but feels terrible if the float is rigid. The trick was making the ride feel weightless and responsive without the board clipping into terrain or jittering.' },
-      { h: 'How I built it', p: 'A raycast samples the ground height each frame and feeds a spring force that holds the board at a target hover height, with damping to kill oscillation. Tilt is driven by velocity so the board leans into movement.' },
+      { h: 'Overview', p: 'A head-to-head brain-battle game — two players sit at a shared table, get the same puzzle, and race to solve it. Winning earns IQ (the game\'s currency), which feeds into leaderboards, chair unlocks, rebirths and steal mechanics. Ten minigames wired in: Maze, Untangle, StopTimer, PipeConnect, NumberSort, PatternMemory, TicTacToe, WordSearch, PipeFlow and OddColor.' },
+      { h: 'The challenge', p: 'Keeping the duel engine clean while it juggles a lot at once — shared puzzle state, synced countdowns, race vs. score win modes, forfeits, AFK timeouts, and runtime cosmetic chair-swaps that can\'t be allowed to break an active match. The trick was hiding all of that behind the right abstractions so game logic never touches raw seats or physical chairs.' },
+      { h: 'How I built it', p: 'The core design decisions are the interesting part: a Station layer that hides which seat is in use so chairs swap mid-game, auto-grouped arenas so duplicating a table folder "just works" with zero config, a single audited path for the IQ economy, and a folder-convention registry so adding a minigame needs no wiring edits.' },
     ],
-    code: {
-      lang: 'Luau',
-      text: `-- Spring-damper that keeps the board floating at HOVER_HEIGHT
-local hit = workspace:Raycast(board.Position, Vector3.new(0, -10, 0), params)
-if hit then
-    local distance = (board.Position - hit.Position).Y
-    local offset   = HOVER_HEIGHT - distance
-    local velocityY = board.AssemblyLinearVelocity.Y
-    local force = (offset * STIFFNESS) - (velocityY * DAMPING)
-    board:ApplyImpulse(Vector3.new(0, force * board.AssemblyMass, 0))
-end`,
-    },
-    links: [
-      { label: 'View Code', url: '#' },
-    ],
+    links: [],
   },
 
   FfcwRnzSwo4: {
-    title: 'Math Game',
+    title: 'I Am Number',
     tech: ['Unity Engine', 'C#', '2D'],
     body: [
       { h: 'Overview', p: 'A 2D math game with a twist: you <em>are</em> a number, and that number is your weight. Bigger number, heavier you — so you tip seesaws, hold down switches, and shove open doors just by existing. You grow and shrink by grabbing and dropping digits as you play. It\'s math you <em>feel</em>, not math you get quizzed on.' },
@@ -76,36 +86,6 @@ end`,
     ],
     links: [
       { label: 'View Code', url: 'https://github.com/ujsain/The-Journey-Of-Zero', primary: true },
-    ],
-  },
-
-  'g_4jja5_s-A': {
-    title: 'Knife Combat & AI',
-    tech: ['Roblox Engine', 'Luau', 'State Machine', 'AI'],
-    body: [
-      { h: 'Overview', p: 'A knife combat system paired with AI bots that hunt, chase and attack the player — all driven by a clean finite state machine.' },
-      { h: 'The challenge', p: 'Bots needed to feel deliberate, not twitchy: smoothly transitioning between patrolling, chasing and attacking without getting stuck or flip-flopping between states.' },
-      { h: 'How I built it', p: 'Each bot runs a state machine (Idle → Patrol → Chase → Attack) with clear enter/update/exit hooks per state and transition guards based on distance and line of sight. Combat shares the same hitbox + cooldown logic the player uses, so behavior stays consistent.' },
-    ],
-    code: {
-      lang: 'Luau',
-      text: `-- Minimal FSM driving each bot
-local Bot = {}
-Bot.__index = Bot
-
-function Bot:setState(name)
-    if self.state == name then return end
-    if self.states[self.state] then self.states[self.state].exit(self) end
-    self.state = name
-    self.states[name].enter(self)
-end
-
-function Bot:update(dt)
-    self.states[self.state].update(self, dt)
-end`,
-    },
-    links: [
-      { label: 'View Code', url: '#' },
     ],
   },
 
@@ -120,17 +100,15 @@ end`,
     links: [],
   },
 
-  '01Fkofs51dQ': {
-    title: 'Snake Game + RL AI',
-    tech: ['Unity Engine', 'C#', 'Reinforcement Learning', 'ML-Agents'],
+  'QuEuLtu-Yf0': {
+    title: 'Golf BOOM!',
+    tech: ['Roblox Engine', 'Lua', 'Gameplay Systems'],
     body: [
-      { h: 'Overview', p: 'A Snake game built in Unity, then turned into an AI playground. The snakes steer continuously (Slither.io-style, not the grid version), and I trained reinforcement-learning agents to drive them — chasing food, dodging walls, and avoiding each other in a shared arena.' },
-      { h: 'The challenge', p: 'The agent never gets told where the food is. Each snake "sees" through 20 raycasts fanning out in front of it, each reporting what it\'s looking at — food, a wall, or a rival snake — and how far. Turning that raw vision into smart movement, with nothing but a single steering output and a sparse reward, was the hard part.' },
-      { h: 'How I built it', p: 'Each snake observes its raycasts plus its own position, and acts through one continuous steer while always moving forward. Rewards are dead simple: +3 for eating, −2 for hitting a wall, −3 for crashing into another snake. I trained it with PPO in ML-Agents over a couple million steps, then exported to ONNX to run in-game. Several snakes share the arena and compete, so they learn to handle a board that\'s always moving — not a static one.' },
+      { h: 'Overview', p: 'A chaotic multiplayer golf game. Up to 60 players race to sink shots across timed rounds, while throwing fireballs and cannons at each other to mess up their swings.' },
+      { h: 'The challenge', p: 'Getting golf to feel arcade, not realistic. Roblox\'s default physics makes the ball fast and heavy, so I wrote custom gravity, drag and backspin to get slow floaty arcs. The other tricky part was layering combat on top of golf without breaking the round or score logic.' },
+      { h: 'How I built it', p: 'Built this the agentic way — used Opus 4.5 for about 80% of the systems, then tuned the feel myself: swing timing, trajectory preview, off-screen ball indicators, and the gag where a ball smacks someone in the head. Also learned a lot about Roblox engine limits compared to Unity.' },
     ],
-    links: [
-      { label: 'View Code', url: 'https://github.com/ujsain/SnakeGame', primary: true },
-    ],
+    links: [],
   },
 
   fpLVqa5t63E: {
@@ -156,7 +134,7 @@ end`,
   },
 
   kUziMj68Og0: {
-    title: 'Cyberpunk UI',
+    title: 'CyberPunk UI in Roblox',
     tech: ['Roblox Engine', 'Lua', 'UI/UX'],
     body: [
       { h: 'Overview', p: 'Effect-heavy UI work for a cyberpunk-styled game — glitches, scanlines and neon accents that sell an immersive, high-tech atmosphere.' },
@@ -193,6 +171,321 @@ end`,
   },
 };
 
+/* ─────────────────────────────────────────────────────────────
+   GAMES CONTRIBUTED DATA  ← EDIT THIS
+   ─────────────────────────────────────────────────────────────
+   One entry per game in the scrolling "Games Contributed" strip.
+     • title    — game name
+     • platform — 'roblox' | 'mobile'   (picks colour + badge)
+     • image    — path inside GameImage/
+     • stats    — array of { num, label }  e.g. Visits / Peak CCU / Installs
+     • blurb    — short text on the card (clamped to ~3 lines)
+     • tech     — tags shown in the detail modal
+     • body     — array of {h, p} sections shown when the card is clicked
+     • links    — array of { label, url, primary? }  (optional; "#" is ignored)
+   ───────────────────────────────────────────────────────────── */
+const GAMES = [
+  {
+    title: 'Screw Jam',
+    platform: 'mobile',
+    image: 'GameImage/ScrewJam.jpg',
+    stats: [{ num: '100K+', label: 'Installs' }],
+    blurb: 'A relaxing screw-sorting puzzle game with 100K+ installs — unscrew the pieces in the right order to clear each board.',
+    tech: ['Unity', 'C#', 'Puzzle', 'Mobile'],
+    body: [
+      { h: 'What it is', p: 'A relaxing screw-sorting puzzle game with 100K+ installs — unscrew pieces in the right order to clear each board.' },
+      { h: 'What I worked on', p: 'Core puzzle mechanics, level progression, UI systems and the retention features that keep players coming back day after day.' },
+    ],
+    links: [{ label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.screw.jam&hl=en_IN', primary: true }],
+  },
+  {
+    title: 'Football World',
+    platform: 'mobile',
+    image: 'GameImage/FootBallWorld.png',
+    stats: [{ num: '10M+', label: 'Installs' }],
+    blurb: 'A fast, pick-up-and-play mobile football game with 10M+ installs, built and operated at scale at Audify.',
+    tech: ['Unity', 'C#', 'Live Ops', 'Mobile'],
+    body: [
+      { h: 'What it is', p: 'A fast, pick-up-and-play mobile football game with 10M+ installs, built and operated at scale at Audify.' },
+      { h: 'What I worked on', p: 'Playable ads for user acquisition, banner-ad bug fixes, UI systems and particle effects — a mix of feature work and the polish that keeps a 10M-install live game running smoothly.' },
+      { h: 'What I learned', p: 'How to find my way around a very large codebase — locating the right place to make a change and shipping it without breaking what\'s already live.' },
+    ],
+    links: [{ label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.audify.football&hl=en_IN', primary: true }],
+  },
+  {
+    title: '+1 Sword Fight',
+    platform: 'roblox',
+    image: 'GameImage/%2B1SwordFight.jpg',
+    stats: [{ num: '2M+', label: 'Visits' }, { num: '3K', label: 'Peak CCU' }],
+    blurb: 'A +1-style Roblox sword-fighting game — train your strength, upgrade swords, unlock auras and take down ever-harder bosses.',
+    tech: ['Roblox Engine', 'Luau', 'Gameplay', 'Live Ops'],
+    body: [
+      { h: 'What it is', p: 'A +1-style Roblox sword-fighting game — train your strength, upgrade swords, unlock auras and push into new areas to take down progressively harder bosses. A simple core loop with high replayability.' },
+      { h: 'What I worked on', p: 'Obstacle systems, progression funnels and UI scripting, plus live bug-fixing on a production game with real players in it.' },
+      { h: 'What I learned', p: 'How to work inside a large, shared codebase. With a full team writing into the same project, I learned to write readable, consistent code that other developers could pick up and build on without friction.' },
+    ],
+    links: [{ label: 'Play on Roblox', url: 'https://www.roblox.com/games/71132391335247/1-Sword-Fighting-Escape', primary: true }],
+  },
+  {
+    title: 'Tile Match',
+    platform: 'mobile',
+    image: 'GameImage/TileMatch.jpg',
+    stats: [{ num: '100K+', label: 'Installs' }],
+    blurb: 'A classic triple-tile matching puzzle game with 100K+ installs — clear the board by matching sets of three.',
+    tech: ['Unity', 'C#', 'Puzzle', 'Mobile'],
+    body: [
+      { h: 'What it is', p: 'A classic triple-tile matching puzzle game with 100K+ installs — clear the board by matching sets of three.' },
+      { h: 'What I worked on', p: 'UI systems and modular gameplay code — chest and quest systems, retention features, in-game analytics tracking, and steady bug-fixing on a live title.' },
+    ],
+    links: [{ label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.tilematch.game&hl=en_IN', primary: true }],
+  },
+  {
+    title: 'Indian Village Shop [HORROR GAME]',
+    platform: 'roblox',
+    image: 'GameImage/Indian%20Village%20Shop.jpg',
+    stats: [{ num: '700K+', label: 'Visits' }, { num: '2.5K', label: 'Peak CCU' }],
+    blurb: 'Roblox horror game — run the night shift at a remote village shop, follow the rules and survive each night to unlock the next.',
+    tech: ['Roblox Engine', 'Luau', 'Horror', 'Gameplay'],
+    body: [
+      { h: 'What it is', p: 'A rules-based horror experience on Roblox — you take the night shift at a small shop outside a remote Indian village. Serve customers chai and samosas, listen to the owner\'s phone calls, spot the suspicious ones, and survive each night to unlock the next.' },
+      { h: 'What I worked on', p: 'Gameplay scripting and the systems behind the scares — night/event flow, customer and rule logic, and the atmosphere control (lighting and sound) that sells the tension.' },
+    ],
+    links: [{ label: 'Play on Roblox', url: 'https://www.roblox.com/games/90229512149046/Indian-Village-Shop', primary: true }],
+  },
+];
+
+// ─── Hero headline typewriter ───
+// Wraps every character in a hidden span, then reveals them one by one.
+// Layout never shifts because all chars exist (invisible) from the start.
+const heroTitle = document.querySelector('.hero h1');
+if (heroTitle) {
+  const chars = [];
+  (function wrapChars(node) {
+    [...node.childNodes].forEach(child => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        for (const ch of child.textContent) {
+          const s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = ch;
+          frag.appendChild(s);
+          chars.push(s);
+        }
+        child.replaceWith(frag);
+      } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName !== 'BR') {
+        wrapChars(child);
+      }
+    });
+  })(heroTitle);
+
+  let typeIdx = 0;
+  function typeNext() {
+    if (typeIdx < chars.length) {
+      const ch = chars[typeIdx++];
+      ch.classList.add('on');
+      setTimeout(typeNext, ch.textContent === ' ' ? 30 : 55);
+    }
+  }
+  setTimeout(typeNext, 350);
+}
+
+// ─── Section-title typewriter ───
+// Same typed-in reveal as the hero headline, but for section titles
+// ("Projects", "Work Experience", "My Skills", "Let's Talk").
+// Each title types itself the first time it scrolls into view.
+(() => {
+  const targets = document.querySelectorAll('.section-title, .toolkit-head h4');
+  if (!targets.length) return;
+
+  // Pre-wrap every character in a hidden span so layout never shifts
+  targets.forEach(el => {
+    const chars = [];
+    (function wrapChars(node) {
+      [...node.childNodes].forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const frag = document.createDocumentFragment();
+          for (const ch of child.textContent) {
+            const s = document.createElement('span');
+            s.className = 'ch';
+            s.textContent = ch;
+            frag.appendChild(s);
+            chars.push(s);
+          }
+          child.replaceWith(frag);
+        } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName !== 'BR') {
+          wrapChars(child);
+        }
+      });
+    })(el);
+    el._typeChars = chars;
+  });
+
+  function startTyping(el) {
+    const chars = el._typeChars || [];
+    let i = 0;
+    (function next() {
+      if (i < chars.length) {
+        const ch = chars[i++];
+        ch.classList.add('on');
+        setTimeout(next, ch.textContent === ' ' ? 30 : 60);
+      }
+    })();
+  }
+
+  const titleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        titleObserver.unobserve(entry.target);
+        startTyping(entry.target);
+      }
+    });
+  }, { threshold: 0.5, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => titleObserver.observe(el));
+})();
+
+// ─── Games Contributed: render marquee cards ───
+// Builds the cards from GAMES, then clones the group once so the
+// translateX(-50%) animation loops with no visible seam.
+(() => {
+  const track = document.getElementById('gamesTrack');
+  if (!track) return;
+
+  const cardHTML = (g, i) => {
+    const play = (g.links || []).find(l => l.primary && l.url && l.url !== '#');
+    return `
+    <div class="game-card game-${g.platform}" data-game="${i}" role="button" tabindex="0" aria-label="${g.title} — read more">
+      <div class="game-thumb">
+        <img class="game-thumb-bg" src="${g.image}" alt="" aria-hidden="true" loading="lazy">
+        <img class="game-thumb-art" src="${g.image}" alt="${g.title}" loading="lazy">
+        <span class="game-badge"><span class="dot"></span>${g.platform === 'roblox' ? 'Roblox' : 'Mobile'}</span>
+      </div>
+      <div class="game-info">
+        <div class="game-name">${g.title}</div>
+        <div class="game-stats">
+          ${g.stats.map(s => `<div class="game-stat"><div class="game-stat-num">${s.num}</div><div class="game-stat-label">${s.label}</div></div>`).join('')}
+        </div>
+        <p class="game-blurb">${g.blurb || ''}</p>
+        <div class="game-actions">
+          <span class="game-more">Read more <span aria-hidden="true">→</span></span>
+          ${play ? `<a class="game-play" href="${play.url}" target="_blank" rel="noopener" aria-label="Play ${g.title} (opens in new tab)">Play <span aria-hidden="true">↗</span></a>` : ''}
+        </div>
+      </div>
+    </div>`;
+  };
+
+  const group = `<div class="games-group">${GAMES.map(cardHTML).join('')}</div>`;
+  track.innerHTML = group + group.replace('class="games-group"', 'class="games-group" aria-hidden="true"');
+
+  track.querySelectorAll('.game-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.game-play')) return; // Play link navigates, doesn't open the modal
+      openGame(+card.dataset.game);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.target.closest('.game-play')) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGame(+card.dataset.game); }
+    });
+  });
+
+  // ── JS-driven marquee: auto-scrolls, pauses on hover, and can be
+  //    steered with the mouse wheel or dragged (mouse + touch).
+  //    The track holds two identical groups, so wrapping the offset at
+  //    one group's width keeps the loop seamless in both directions.
+  const marquee = track.closest('.games-marquee');
+  const duration = Math.max(24, GAMES.length * 9);   // seconds per full loop
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let groupW = 0;
+  const measure = () => { groupW = track.scrollWidth / 2; };
+  window.addEventListener('resize', measure);
+  measure();
+
+  let offset = 0;          // current scroll position in px
+  let hovered = false;     // mouse over the slider → auto-scroll paused
+  let dragging = false;
+  let dragStartX = 0, dragStartOffset = 0, dragMoved = false;
+
+  let last = performance.now();
+  (function tick(now) {
+    const dt = Math.min((now - last) / 1000, 0.1);
+    last = now;
+    if (!groupW) measure();
+    if (groupW) {
+      if (!hovered && !dragging && !reduceMotion) offset += (groupW / duration) * dt;
+      offset = ((offset % groupW) + groupW) % groupW;   // wrap both directions
+      track.style.transform = `translateX(${-offset}px)`;
+    }
+    requestAnimationFrame(tick);
+  })(last);
+
+  marquee.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hovered = true; });
+  marquee.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hovered = false; });
+
+  // Wheel over the slider scrolls it horizontally instead of the page
+  marquee.addEventListener('wheel', e => {
+    e.preventDefault();
+    offset += e.deltaY + e.deltaX;
+  }, { passive: false });
+
+  // Drag to scroll — pointer events cover mouse, touch and pen
+  marquee.addEventListener('pointerdown', e => {
+    dragging = true;
+    dragMoved = false;
+    dragStartX = e.clientX;
+    dragStartOffset = offset;
+  });
+  window.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - dragStartX;
+    if (Math.abs(dx) > 6 && !dragMoved) {
+      dragMoved = true;
+      marquee.classList.add('is-dragging'); // grabbing cursor + cards ignore the pointer
+    }
+    if (dragMoved) offset = dragStartOffset - dx;
+  });
+  const endDrag = () => { dragging = false; marquee.classList.remove('is-dragging'); };
+  window.addEventListener('pointerup', endDrag);
+  window.addEventListener('pointercancel', endDrag);
+
+  // A drag shouldn't open the card modal when the pointer is released
+  marquee.addEventListener('click', e => {
+    if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; }
+  }, true);
+})();
+
+// ─── Live Roblox visit counts ───
+// Pulls the real visit counts from the Roblox games API via the roproxy.com
+// mirror (games.roblox.com blocks browser CORS) and swaps them into the
+// marquee cards + GAMES data (which the modal reads at open time).
+// If the proxy is unreachable, the hardcoded numbers stay as a fallback.
+(async () => {
+  const LIVE_GAMES = {                                       // universeId → GAMES title
+    10411628404: '+1 Sword Fight',                           // +1 Sword Fighting Escape
+    10548659123: 'Indian Village Shop [HORROR GAME]',
+  };
+  const fmt = n => n >= 1e6 ? Math.floor(n / 1e6) + 'M+'
+            : n >= 1e3 ? Math.floor(n / 1e3) + 'K+'
+            : String(n);
+  try {
+    const ids = Object.keys(LIVE_GAMES).join(',');
+    const res = await fetch(`https://games.roproxy.com/v1/games?universeIds=${ids}`);
+    ((await res.json()).data || []).forEach(game => {
+      const title = LIVE_GAMES[game.id];
+      if (!title || !game.visits) return;
+      const i = GAMES.findIndex(g => g.title === title);
+      if (i === -1) return;
+      const visits = fmt(game.visits);
+      const stat = (GAMES[i].stats || []).find(s => s.label === 'Visits');
+      if (stat) stat.num = visits;
+      document.querySelectorAll(`.game-card[data-game="${i}"] .game-stat`).forEach(el => {
+        if (el.querySelector('.game-stat-label')?.textContent === 'Visits')
+          el.querySelector('.game-stat-num').textContent = visits;
+      });
+    });
+  } catch { /* proxy down — keep hardcoded numbers */ }
+})();
+
 // ─── Navbar scroll effect ───
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -211,9 +504,13 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 });
 
-// ─── Copy email to clipboard ───
-function copyEmail(el) {
-  navigator.clipboard.writeText('ujjsaini@gmail.com');
+// ─── Copy contact handle (email, discord, …) to clipboard ───
+function copyText(el, text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
   const arrow = el.querySelector('.contact-link-arrow');
   const original = arrow.textContent;
   arrow.textContent = '✓';
@@ -222,6 +519,18 @@ function copyEmail(el) {
     arrow.textContent = original;
     arrow.style.color = '';
   }, 1800);
+}
+
+// Clipboard API fallback for browsers/contexts where it's unavailable
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
 }
 
 // ─── Scroll reveal animations ───
@@ -238,28 +547,33 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ─── Animated stat counters ───
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.dataset.count);
-      let current = 0;
-      const step = Math.ceil(target / 30);
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(interval);
-        }
-        el.textContent = current + '+';
-      }, 40);
-      statObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
+// ─── Timelines (experience, education): neon line draws in as you scroll ───
+const timelines = [...document.querySelectorAll('.timeline')].map(el => ({
+  el,
+  progress: el.querySelector('.timeline-progress'),
+  items: el.querySelectorAll('.timeline-item'),
+})).filter(t => t.progress);
 
-document.querySelectorAll('.stat-value').forEach(el => statObserver.observe(el));
+if (timelines.length) {
+  function updateTimeline() {
+    timelines.forEach(({ el, progress, items }) => {
+      const rect = el.getBoundingClientRect();
+      // The line's tip tracks a point ~70% down the viewport
+      const tip = window.innerHeight * 0.7 - rect.top;
+      const drawn = Math.min(Math.max(tip, 0), el.offsetHeight);
+      progress.style.height = drawn + 'px';
+
+      // Light up each node the moment the line reaches it
+      items.forEach(item => {
+        item.classList.toggle('lit', item.offsetTop + 10 <= drawn);
+      });
+    });
+  }
+
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  window.addEventListener('resize', updateTimeline);
+  updateTimeline();
+}
 
 // ─── Adaptive video loading ───
 // Detect if device can handle inline video previews
@@ -388,7 +702,47 @@ document.querySelectorAll('.project-card').forEach(card => {
 function closeVideoModal() {
   videoModal.classList.remove('active');
   document.body.style.overflow = '';
-  setTimeout(() => { modalPlayer.innerHTML = ''; }, 300);
+  setTimeout(() => { modalPlayer.innerHTML = ''; modalPlayer.classList.remove('vm-image'); }, 300);
+}
+
+// ─── Game detail (reuses the project modal) ───
+function openGame(i) {
+  const g = GAMES[i];
+  if (!g) return;
+  const warm = g.platform === 'mobile';
+
+  modalTitle.textContent = g.title;
+
+  // Image instead of a video player
+  modalPlayer.classList.add('vm-image');
+  modalPlayer.innerHTML = `
+    <img class="vm-img-bg" src="${g.image}" alt="" aria-hidden="true">
+    <img class="vm-img-art" src="${g.image}" alt="${g.title}">`;
+
+  // Platform + tech tags
+  modalTech.innerHTML = [warm ? 'Mobile' : 'Roblox', ...(g.tech || [])]
+    .map(t => `<span class="vm-tech-tag">${t}</span>`)
+    .join('');
+
+  // Big stats row, then the writeup sections
+  const statsHTML = `<div class="vm-stats">${g.stats.map(s =>
+    `<div><div class="vm-stat-num ${warm ? 'warm' : ''}">${s.num}</div><div class="vm-stat-label">${s.label}</div></div>`
+  ).join('')}</div>`;
+  modalBody.innerHTML = statsHTML + (g.body || [])
+    .map(s => `<div class="vm-section"><h4>${s.h}</h4><p>${s.p}</p></div>`)
+    .join('');
+
+  modalCodeWrap.hidden = true;
+
+  const links = (g.links || []).filter(l => l.url && l.url !== '#');
+  modalLinks.innerHTML = links
+    .map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="vm-link ${l.primary ? 'vm-link-primary' : ''}">${l.label}</a>`)
+    .join('');
+  modalLinks.style.display = links.length ? '' : 'none';
+
+  if (modalScroll) modalScroll.scrollTop = 0;
+  videoModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 // Close on Escape key
