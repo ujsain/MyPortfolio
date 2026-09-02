@@ -260,8 +260,9 @@ nav.scrolled { border-bottom-color: rgba(61, 220, 151, 0.2); }
 
 .hero h1 {
   font-family: var(--font-display);
-  /* Rock Salt renders tall and wide — cap sizes low, breathe with line-height */
-  font-size: clamp(1.35rem, 3.2vw, 2.4rem);
+  /* Rock Salt renders tall and wide — cap sizes low, breathe with line-height.
+     Two stacked lines; the floor keeps "I build games players" inside a 360px phone. */
+  font-size: clamp(1.35rem, 6.5vw, 3.36rem);
   font-weight: 400; line-height: 1.7;
   letter-spacing: 0;
   margin-bottom: 1.5rem;
@@ -273,6 +274,7 @@ nav.scrolled { border-bottom-color: rgba(61, 220, 151, 0.2); }
 
 /* On desktop the two headline lines never break internally */
 @media (min-width: 769px) {
+  .hero h1 { font-size: clamp(1.89rem, 4.48vw, 3.36rem); }
   .hero h1 .h1-line { white-space: nowrap; }
 }
 
