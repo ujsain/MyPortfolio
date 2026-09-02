@@ -100,15 +100,19 @@ end`,
     links: [],
   },
 
-  'QuEuLtu-Yf0': {
-    title: 'Golf BOOM!',
-    tech: ['Roblox Engine', 'Lua', 'Gameplay Systems'],
+  cGNssrDLLKA: {
+    title: 'Bubbles In Space',
+    tech: ['Unity Engine', 'C#', 'Mobile', 'Google Play'],
     body: [
-      { h: 'Overview', p: 'A chaotic multiplayer golf game. Up to 60 players race to sink shots across timed rounds, while throwing fireballs and cannons at each other to mess up their swings.' },
-      { h: 'The challenge', p: 'Getting golf to feel arcade, not realistic. Roblox\'s default physics makes the ball fast and heavy, so I wrote custom gravity, drag and backspin to get slow floaty arcs. The other tricky part was layering combat on top of golf without breaking the round or score logic.' },
-      { h: 'How I built it', p: 'Built this the agentic way — used Opus 4.5 for about 80% of the systems, then tuned the feel myself: swing timing, trajectory preview, off-screen ball indicators, and the gag where a ball smacks someone in the head. Also learned a lot about Roblox engine limits compared to Unity.' },
+      { h: 'Overview', p: 'A simple casual game I published on the Google Play Store. You are a bubble travelling through space, steering to dodge a stream of obstacles. The core mechanic is inspired by <em>Hardest Vertical Adventure</em>.' },
+      { h: 'Bubble mechanics & VFX', p: 'Tight, responsive bubble movement backed by lots of particle effects — pops, trails and bursts — all managed carefully so the game stays smooth on mobile.' },
+      { h: 'Obstacle design', p: 'Designed a set of obstacles that blast apart at specific time intervals, and wrote the movement algorithms that drive how they travel across the screen.' },
+      { h: 'Sound Manager & events', p: 'Built a custom Sound Manager script that can play, stop, loop, fade in and fade out any sound from one place. Used C# events throughout so systems talk to each other without tight coupling, which made the code flow much cleaner.' },
     ],
-    links: [],
+    links: [
+      { label: 'View Code', url: 'https://github.com/ujsain/Project', primary: true },
+      { label: 'Watch Gameplay', url: 'https://www.youtube.com/shorts/cGNssrDLLKA' },
+    ],
   },
 
   fpLVqa5t63E: {
@@ -144,16 +148,17 @@ end`,
     links: [],
   },
 
-  '2lh-PS8I5L4': {
-    title: 'Skydiving',
-    tech: ['Roblox Engine', 'Luau', 'Physics'],
+  gITZNk4eyFI: {
+    title: 'SpinSmash',
+    tech: ['Unity Engine', 'C#', 'VFX', 'Level Design'],
     body: [
-      { h: 'Overview', p: 'A Roblox social multiplayer skydiving game. You board a plane with your friends, jump out, fly your body through rings, collect coins on the way down, then pop a glider to land on the podium.' },
-      { h: 'The challenge', p: 'Velocity is custom, because natural gravity would make the player fall too fast. Since it\'s multiplayer, if two or more people skydive simultaneously, I had to fake the body\'s Y-position to compensate for server-client lag.' },
-      { h: 'How I built it', p: 'I wrote modular code where each system works independently. The game also includes several other systems such as a pet system, egg hatching, pet fusion, and a leaderboard. For data persistence, I used ProfileService to manage player data.' },
+      { h: 'Overview', p: 'A game I worked on during my internship at Flying Ant Studio, collaborating with a team of designers and developers. My focus was the feel of the game — fireworks, VFX, feedback and levels.' },
+      { h: 'Dynamic firework system', p: 'Every rocket in the firework display is spawned at runtime and launched at a random angle and speed, so no two bursts look the same. Once a rocket travels a set distance it pops into a particle effect for the finale.' },
+      { h: 'Game feel & polish', p: 'Added camera shake, particle VFX, a squash-and-stretch effect on the UI, and sound effects so every hit and win lands with impact.' },
+      { h: 'Levels & mechanics', p: 'Built 25 levels in collaboration with a game designer, and improved the windmill mechanics so they read clearly and play fairly.' },
     ],
     links: [
-      { label: 'View Code', url: 'https://github.com/ujsain/SkyDiving', primary: true },
+      { label: 'Watch Gameplay', url: 'https://youtu.be/gITZNk4eyFI', primary: true },
     ],
   },
 
