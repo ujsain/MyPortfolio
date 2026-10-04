@@ -191,17 +191,17 @@ end`,
    ───────────────────────────────────────────────────────────── */
 const GAMES = [
   {
-    title: 'Screw Jam',
-    platform: 'mobile',
-    image: 'GameImage/ScrewJam.jpg',
-    stats: [{ num: '100K+', label: 'Installs' }],
-    blurb: 'A relaxing screw-sorting puzzle game with 100K+ installs — unscrew the pieces in the right order to clear each board.',
-    tech: ['Unity', 'C#', 'Puzzle', 'Mobile'],
+    title: '1 IQ vs 9999 IQ',
+    platform: 'roblox',
+    image: 'GameImage/IQ.png',
+    stats: [{ num: '96K+', label: 'Visits' }],
+    blurb: 'A party & casual Roblox minigame battler — race your opponent through brain puzzles, solve first and climb the bracket.',
+    tech: ['Roblox Engine', 'Luau', 'Minigames', 'Puzzle'],
     body: [
-      { h: 'What it is', p: 'A relaxing screw-sorting puzzle game with 100K+ installs — unscrew pieces in the right order to clear each board.' },
-      { h: 'What I worked on', p: 'Core puzzle mechanics, level progression, UI systems and the retention features that keep players coming back day after day.' },
+      { h: 'What it is', p: 'A party & casual puzzle game on Roblox packed with minigames and endless brain battles. Race your opponent, solve first and grab the win — the harder the puzzle, the more IQ you earn.' },
+      { h: 'Features', p: 'Bracket tournaments where you climb the rounds and eliminate rivals to claim the crown, plus IQ-multiplier chairs you can upgrade to boost every point you score.' },
     ],
-    links: [{ label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.screw.jam&hl=en_IN', primary: true }],
+    links: [{ label: 'Play on Roblox', url: 'https://www.roblox.com/games/94671604478146/1-IQ-vs-9999-IQ', primary: true }],
   },
   {
     title: 'Football World',
@@ -221,7 +221,7 @@ const GAMES = [
     title: '+1 Sword Fight',
     platform: 'roblox',
     image: 'GameImage/%2B1SwordFight.jpg',
-    stats: [{ num: '2M+', label: 'Visits' }, { num: '3K', label: 'Peak CCU' }],
+    stats: [{ num: '2M+', label: 'Visits' }, { num: '5K', label: 'Peak CCU' }],
     blurb: 'A +1-style Roblox sword-fighting game — train your strength, upgrade swords, unlock auras and take down ever-harder bosses.',
     tech: ['Roblox Engine', 'Luau', 'Gameplay', 'Live Ops'],
     body: [
@@ -248,7 +248,7 @@ const GAMES = [
     title: 'Indian Village Shop [HORROR GAME]',
     platform: 'roblox',
     image: 'GameImage/Indian%20Village%20Shop.jpg',
-    stats: [{ num: '700K+', label: 'Visits' }, { num: '2.5K', label: 'Peak CCU' }],
+    stats: [{ num: '700K+', label: 'Visits' }, { num: '6.8K', label: 'Peak CCU' }],
     blurb: 'Roblox horror game — run the night shift at a remote village shop, follow the rules and survive each night to unlock the next.',
     tech: ['Roblox Engine', 'Luau', 'Horror', 'Gameplay'],
     body: [
@@ -468,6 +468,7 @@ if (heroTitle) {
   const LIVE_GAMES = {                                       // universeId → GAMES title
     10411628404: '+1 Sword Fight',                           // +1 Sword Fighting Escape
     10548659123: 'Indian Village Shop [HORROR GAME]',
+    10591582051: '1 IQ vs 9999 IQ',
   };
   const fmt = n => n >= 1e6 ? Math.floor(n / 1e6) + 'M+'
             : n >= 1e3 ? Math.floor(n / 1e3) + 'K+'
